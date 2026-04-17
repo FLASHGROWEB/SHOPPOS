@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop POS | Zero-Backend Payment Gateway</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #09090b; }
+        .gradient-text {
+            background: linear-gradient(to right, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="text-zinc-200 font-sans selection:bg-blue-500/30">
+
+    <nav class="border-b border-zinc-800 bg-zinc-950/50 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-black tracking-tighter text-white">SHOP <span class="text-blue-500">POS</span></div>
+            <div class="space-x-6 text-sm font-medium">
+                <a href="#features" class="hover:text-blue-400 transition">Features</a>
+                <a href="#guide" class="hover:text-blue-400 transition">Integration</a>
+                <a href="https://flashgroweb.github.io/postest/?amt=0.10" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg transition">Live Demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="max-w-5xl mx-auto px-6 py-24 text-center">
+        <h1 class="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight">
+            Accept Payments <br><span class="gradient-text">Without the Headache.</span>
+        </h1>
+        <p class="text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+            A lightweight, zero-backend gateway for Interac e-Transfers and Litecoin. Perfect for GitHub Pages, static sites, and offline vendors.
+        </p>
+        <div class="flex flex-col md:flex-row justify-center gap-4">
+            <a href="#guide" class="bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-zinc-200 transition">Get Started</a>
+            <a href="https://flashgroweb.github.io/postest/?amt=0.10" class="bg-zinc-900 border border-zinc-800 text-white px-8 py-4 rounded-xl font-bold hover:bg-zinc-800 transition">Try Demo ($0.10)</a>
+        </div>
+    </header>
+
+    <section id="features" class="max-w-5xl mx-auto px-6 py-20 border-t border-zinc-900">
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="p-8 border border-zinc-800 rounded-3xl bg-zinc-900/50">
+                <div class="text-blue-500 text-3xl mb-4">⚡</div>
+                <h3 class="text-white font-bold text-xl mb-2">Zero Backend</h3>
+                <p class="text-zinc-400 text-sm">No databases, no servers, no complex API keys. Just a URL and a price parameter.</p>
+            </div>
+            <div class="p-8 border border-zinc-800 rounded-3xl bg-zinc-900/50">
+                <div class="text-blue-500 text-3xl mb-4">💰</div>
+                <h3 class="text-white font-bold text-xl mb-2">Direct Payments</h3>
+                <p class="text-zinc-400 text-sm">Money goes directly to your bank or LTC wallet. We never hold your funds.</p>
+            </div>
+            <div class="p-8 border border-zinc-800 rounded-3xl bg-zinc-900/50">
+                <div class="text-blue-500 text-3xl mb-4">🔒</div>
+                <h3 class="text-white font-bold text-xl mb-2">Whitelisted Security</h3>
+                <p class="text-zinc-400 text-sm">Only authorized domains can access the gateway, keeping your transactions secure.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="guide" class="max-w-4xl mx-auto px-6 py-24">
+        <h2 class="text-3xl font-bold text-white mb-12 flex items-center">
+            <span class="bg-blue-600 text-white w-8 h-8 rounded-full inline-flex items-center justify-center text-sm mr-4">1</span>
+            Merchant Integration Guide
+        </h2>
+
+        <div class="space-y-16">
+            <div>
+                <h3 class="text-xl font-bold text-white mb-4">Step 1: Get Whitelisted</h3>
+                <p class="text-zinc-400 mb-6">Contact the Gateway Admin (Jaden) with the following details to activate your site:</p>
+                <div class="bg-zinc-900 p-6 rounded-2xl border border-zinc-800 font-mono text-sm text-blue-400">
+                    <ul>
+                        <li>• Website URL: (e.g., yourshop.github.io)</li>
+                        <li>• Payment Mode: (Hybrid / Crypto / Interac)</li>
+                        <li>• Receiving Email: (Your alert email)</li>
+                        <li>• LTC Address: (Your wallet address)</li>
+                        <li>• Redirect URL: (Your success page)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-bold text-white mb-4">Step 2: Link Your "Buy" Buttons</h3>
+                <p class="text-zinc-400 mb-4">The gateway pulls the price directly from the URL. Link your buttons like this:</p>
+                <code class="block bg-black p-4 rounded-lg text-green-400 text-xs overflow-x-auto mb-4">
+                    https://flashgroweb.github.io/postest/?amt=[PRICE]
+                </code>
+                <div class="bg-zinc-900 p-6 rounded-2xl border border-zinc-800">
+                    <p class="text-xs text-zinc-500 uppercase font-bold mb-4">HTML Implementation</p>
+                    <pre class="text-xs text-zinc-300 overflow-x-auto">
+&lt;a href="https://flashgroweb.github.io/postest/?amt=25.00" 
+   class="button-style"&gt;
+   Buy Now for $25.00
+&lt;/a&gt;</pre>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-bold text-white mb-4">Step 3: How You Get Paid</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 border border-zinc-800 rounded-xl bg-zinc-900/30">
+                        <p class="font-bold text-white mb-1 text-sm">1. Notification</p>
+                        <p class="text-xs text-zinc-400">Receive an email with the Customer Email and Transaction ID (Memo) once they click "Complete".</p>
+                    </div>
+                    <div class="p-4 border border-zinc-800 rounded-xl bg-zinc-900/30">
+                        <p class="font-bold text-white mb-1 text-sm">2. Verification</p>
+                        <p class="text-xs text-zinc-400">Check your bank or LTC wallet. If the funds match the Memo, fulfill the order!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-zinc-900 py-12">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-sm text-zinc-500">
+                &copy; 2024 SHOP POS. All rights reserved.
+            </div>
+            <div class="flex gap-6">
+                <a href="#" class="text-zinc-500 hover:text-white transition text-sm">Terms</a>
+                <a href="#" class="text-zinc-500 hover:text-white transition text-sm">Privacy</a>
+                <a href="mailto:admin@example.com" class="text-zinc-500 hover:text-white transition text-sm">Support</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
